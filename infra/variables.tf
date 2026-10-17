@@ -13,10 +13,12 @@ variable "domain" {
   default = "mercyrobert.dev"
 }
 
+# GitHub's immutable OIDC subject: owner@owner_id/repo@repo_id. The IDs stop a
+# deleted and re-created repo with the same name from inheriting access.
 variable "github_repo" {
-  description = "owner/name of the repo allowed to deploy"
+  description = "Repo allowed to deploy, as GitHub writes it in the OIDC subject"
   type        = string
-  default     = "mercyroberts/portfolio"
+  default     = "mercyroberts@76105163/portfolio@1423336542"
 }
 
 variable "budget_email" {
