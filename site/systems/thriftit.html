@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThriftIt · Mercy Robert</title>
+  <meta name="description" content="ThriftIt: a one-of-one thrift marketplace where the first buyer to pay wins. TypeScript, Postgres row locks, Paystack.">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="label brand" href="../">Mercy Robert</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a class="label link" href="../#systems">All systems</a></li>
+          <li><button class="theme-toggle" type="button">Dark</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="label">01 / Systems / ThriftIt</p>
+        <h1 class="display">ThriftIt</h1>
+        <p class="hero-line">A thrift marketplace where every item is one of one, so only one buyer can win.</p>
+        <dl class="case-meta">
+          <div><dt class="label">Role</dt><dd>Founder and developer</dd></div>
+          <div><dt class="label">Stack</dt><dd>TypeScript, Express, Next.js</dd></div>
+          <div><dt class="label">Payments</dt><dd>Paystack, NGN, GHS, KES, ZAR</dd></div>
+          <div><dt class="label">Status</dt><dd>In progress, 2026</dd></div>
+        </dl>
+      </header>
+
+      <figure class="figure">
+        <div class="figure-frame">
+          <svg class="dia draw" viewBox="0 0 760 390" role="img" aria-labelledby="tt-fig-title">
+            <title id="tt-fig-title">Checkout locks the product row. If the item is available it is reserved for 10 minutes and the buyer goes to Paystack, otherwise they get item already taken. A verified webhook marks the item sold and splits the vendor's share, or releases it on failure. A job every 60 seconds releases expired reservations.</title>
+            <defs><marker id="tt-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-head" d="M0 0L10 5L0 10z"/></marker></defs>
+
+            <path class="line" d="M136 100H166" marker-end="url(#tt-arrow)"/>
+            <path class="line" d="M308 100H326" marker-end="url(#tt-arrow)"/>
+            <path class="line" d="M432 100H458" marker-end="url(#tt-arrow)"/>
+            <text x="445" y="90" text-anchor="middle" class="t-muted">YES</text>
+            <path class="line" d="M380 136V198" marker-end="url(#tt-arrow)"/>
+            <text x="388" y="172" class="t-muted">NO</text>
+            <path class="line" d="M580 100H614" marker-end="url(#tt-arrow)"/>
+            <path class="line" d="M680 128V198" marker-end="url(#tt-arrow)"/>
+            <path class="line" d="M616 228H582" marker-end="url(#tt-arrow)"/>
+            <text x="598" y="218" text-anchor="middle" class="t-muted">FAIL</text>
+            <path class="line" d="M680 256V308" marker-end="url(#tt-arrow)"/>
+            <text x="688" y="286" class="t-muted">SUCCESS</text>
+            <path class="line" d="M520 310V258" marker-end="url(#tt-arrow)"/>
+            <text x="528" y="288" class="t-muted">AFTER 10 MIN</text>
+
+            <rect class="box" x="16" y="72" width="120" height="56"/>
+            <text x="76" y="96" text-anchor="middle">BUYER</text>
+            <text x="76" y="112" text-anchor="middle" class="t-muted">starts checkout</text>
+
+            <rect class="box" x="168" y="72" width="140" height="56"/>
+            <text x="238" y="96" text-anchor="middle">LOCK ROW</text>
+            <text x="238" y="112" text-anchor="middle" class="t-muted">SELECT FOR UPDATE</text>
+
+            <polygon class="box" points="328,100 380,64 432,100 380,136"/>
+            <text x="380" y="104" text-anchor="middle">FREE?</text>
+
+            <rect class="box-accent" x="460" y="72" width="120" height="56"/>
+            <text x="520" y="96" text-anchor="middle">RESERVED</text>
+            <text x="520" y="112" text-anchor="middle" class="t-muted">10 minutes</text>
+
+            <rect class="box" x="616" y="72" width="128" height="56"/>
+            <text x="680" y="104" text-anchor="middle">PAYSTACK</text>
+
+            <rect class="box" x="316" y="200" width="128" height="56"/>
+            <text x="380" y="224" text-anchor="middle">409</text>
+            <text x="380" y="240" text-anchor="middle" class="t-muted">item already taken</text>
+
+            <rect class="box" x="616" y="200" width="128" height="56"/>
+            <text x="680" y="224" text-anchor="middle">WEBHOOK</text>
+            <text x="680" y="240" text-anchor="middle" class="t-muted">HMAC verified</text>
+
+            <rect class="box" x="460" y="200" width="120" height="56"/>
+            <text x="520" y="224" text-anchor="middle">BACK ON SALE</text>
+            <text x="520" y="240" text-anchor="middle" class="t-muted">lock released</text>
+
+            <rect class="box" x="460" y="312" width="120" height="56"/>
+            <text x="520" y="336" text-anchor="middle">EXPIRY JOB</text>
+            <text x="520" y="352" text-anchor="middle" class="t-muted">every 60 seconds</text>
+
+            <rect class="box" x="616" y="312" width="128" height="56"/>
+            <text x="680" y="336" text-anchor="middle">SOLD</text>
+            <text x="680" y="352" text-anchor="middle" class="t-muted">vendor share split</text>
+          </svg>
+        </div>
+        <figcaption class="label">Fig. 1 · Checkout, first to pay wins</figcaption>
+      </figure>
+    </div>
+
+    <section class="case-section reveal" aria-labelledby="t-problem">
+      <div class="wrap grid">
+        <h2 id="t-problem" class="label section-label">A / Problem</h2>
+        <div class="section-body">
+          <p>Thrift vendors in Nigeria, Ghana, Kenya and South Africa mostly sell through WhatsApp and Instagram. Every item is a single piece. If two people check out the same jacket at the same moment, one of them is about to pay for something they can't have.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="t-constraints">
+      <div class="wrap grid">
+        <h2 id="t-constraints" class="label section-label">B / Constraints</h2>
+        <div class="section-body">
+          <ul class="list">
+            <li>A buyer must never pay for an item that's already gone.</li>
+            <li>Vendors need their money without chasing anyone for it.</li>
+            <li>Payments run in four currencies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section inverted reveal" aria-labelledby="t-design">
+      <div class="wrap grid">
+        <h2 id="t-design" class="label section-label">C / Design</h2>
+        <div class="section-body">
+          <p>First to pay wins. When a buyer starts checkout, the server locks the product row in Postgres (<code>SELECT FOR UPDATE</code>) inside a transaction. If the item is still available, it's marked reserved for that buyer and they go to Paystack. Anyone else who tries gets "item already taken" straight away.</p>
+          <p>The reservation lasts 10 minutes. A background job checks every minute and puts expired reservations back on sale. I chose a scheduled job over a timer in memory, because a timer dies with the server and the job doesn't.</p>
+          <p>Paystack tells us how the payment went by webhook. Every webhook is verified with an HMAC signature before we trust it. A successful charge marks the item sold. A failed one releases it straight away.</p>
+          <p>Each vendor has a Paystack subaccount, so their share is split off at checkout instead of being paid out by hand later.</p>
+          <p>Pro vendors can upload a photo and get a draft listing back: title, description, tags, condition and a suggested price. The AI sits behind a small provider interface, with Claude as the first implementation, so I can swap models without touching the listing code. Free accounts get a clear "upgrade to Pro" response instead.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="t-tradeoffs">
+      <div class="wrap grid">
+        <h2 id="t-tradeoffs" class="label section-label">D / Trade-offs</h2>
+        <div class="section-body">
+          <p>A reserved item is off the market for up to 10 minutes, even if the buyer walks away. That felt fairer than letting two people pay and refunding one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="t-outcome">
+      <div class="wrap grid">
+        <h2 id="t-outcome" class="label section-label">E / Outcome</h2>
+        <div class="section-body">
+          <p>Not live yet. Before launch I'm adding concurrency tests for the lock and making the webhook handler idempotent, so a retried webhook can't be processed twice.</p>
+          <p class="label">TypeScript, Node.js and Express on Railway · Next.js on Vercel · PostgreSQL on Supabase with Prisma · Paystack · Cloudinary</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pager" aria-label="Case studies">
+    <div class="wrap">
+      <a class="label link" href="afriex.html">← Afriex</a>
+      <a class="label link" href="cairn.html">Cairn →</a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

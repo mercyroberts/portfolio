@@ -1,0 +1,31 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write # lets the job ask GitHub for an OIDC token
+  contents: read
+
+concurrency: deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Swaps the OIDC token for short-lived AWS credentials. No keys stored in GitHub.
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::531728397132:role/portfolio-github-deploy
+          aws-region: eu-west-1
+
+      - name: Upload changed files
+        run: aws s3 sync site/ s3://mercyrobert-dev-site --delete
+
+      - name: Clear the CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id E2UEG07ZV12B2Q --paths "/*"

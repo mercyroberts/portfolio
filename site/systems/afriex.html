@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cross-border payments at Afriex · Mercy Robert</title>
+  <meta name="description" content="Payment partner integrations and webhook reliability at Afriex, 2024 to 2025.">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="label brand" href="../">Mercy Robert</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a class="label link" href="../#systems">All systems</a></li>
+          <li><button class="theme-toggle" type="button">Dark</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="label">01 / Systems / Afriex</p>
+        <h1 class="display">Cross-border payments</h1>
+        <p class="hero-line">One app, many payment partners, one clear answer for the user.</p>
+        <dl class="case-meta">
+          <div><dt class="label">Role</dt><dd>Software Engineer, Afriex</dd></div>
+          <div><dt class="label">Years</dt><dd>2024 to 2025</dd></div>
+          <div><dt class="label">Stack</dt><dd>Node.js, TypeScript</dd></div>
+          <div><dt class="label">Focus</dt><dd>Integrations, webhooks</dd></div>
+        </dl>
+      </header>
+
+      <figure class="figure">
+        <div class="figure-frame">
+          <svg class="dia draw" viewBox="0 0 760 380" role="img" aria-labelledby="afx-fig-title">
+            <title id="afx-fig-title">Requests from the app and business API go through the API to a layer of partner adapters, one per partner. Partners send webhooks back, which pass a signature check on the raw body, get mapped to internal statuses, and update the transaction once.</title>
+            <defs><marker id="afx-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-head" d="M0 0L10 5L0 10z"/></marker></defs>
+
+            <path class="line" d="M156 72H176V104H194" marker-end="url(#afx-arrow)"/>
+            <path class="line" d="M156 152H176V120H194" marker-end="url(#afx-arrow)"/>
+            <path class="line" d="M336 112H374" marker-end="url(#afx-arrow)"/>
+            <path class="line" d="M536 112H598" marker-end="url(#afx-arrow)"/>
+            <text x="567" y="104" text-anchor="middle" class="t-muted">REQUEST</text>
+            <path class="line" d="M672 140V250" marker-end="url(#afx-arrow)"/>
+            <text x="680" y="200" class="t-muted">WEBHOOK</text>
+            <path class="line" d="M600 280H538" marker-end="url(#afx-arrow)"/>
+            <path class="line" d="M376 280H338" marker-end="url(#afx-arrow)"/>
+            <path class="line" d="M266 252V142" marker-end="url(#afx-arrow)"/>
+            <text x="274" y="200" class="t-muted">STATUS</text>
+
+            <rect class="box" x="16" y="44" width="140" height="56"/>
+            <text x="86" y="68" text-anchor="middle">APP</text>
+            <text x="86" y="84" text-anchor="middle" class="t-muted">mobile and web</text>
+
+            <rect class="box" x="16" y="124" width="140" height="56"/>
+            <text x="86" y="148" text-anchor="middle">BUSINESS API</text>
+            <text x="86" y="164" text-anchor="middle" class="t-muted">clear error codes</text>
+
+            <rect class="box" x="196" y="84" width="140" height="56"/>
+            <text x="266" y="108" text-anchor="middle">API</text>
+            <text x="266" y="124" text-anchor="middle" class="t-muted">routes, interactors</text>
+
+            <rect class="box-accent" x="376" y="84" width="160" height="56"/>
+            <text x="456" y="108" text-anchor="middle">PARTNER ADAPTERS</text>
+            <text x="456" y="124" text-anchor="middle" class="t-muted">one client per partner</text>
+
+            <rect class="box" x="600" y="84" width="144" height="56"/>
+            <text x="672" y="108" text-anchor="middle">PARTNERS</text>
+            <text x="672" y="124" text-anchor="middle" class="t-muted">banks, mobile money</text>
+
+            <rect class="box" x="600" y="252" width="144" height="56"/>
+            <text x="672" y="276" text-anchor="middle">SIGNATURE CHECK</text>
+            <text x="672" y="292" text-anchor="middle" class="t-muted">on the raw body</text>
+
+            <rect class="box" x="376" y="252" width="160" height="56"/>
+            <text x="456" y="276" text-anchor="middle">STATUS MAPPING</text>
+            <text x="456" y="292" text-anchor="middle" class="t-muted">partner to internal</text>
+
+            <rect class="box" x="196" y="252" width="140" height="56"/>
+            <text x="266" y="276" text-anchor="middle">TRANSACTIONS</text>
+            <text x="266" y="292" text-anchor="middle" class="t-muted">updated once</text>
+
+            <text x="672" y="336" text-anchor="middle" class="t-muted">REPLAYABLE IF IT FAILS</text>
+            <text x="266" y="336" text-anchor="middle" class="t-muted">NAME MISMATCH GOES TO REVIEW</text>
+          </svg>
+        </div>
+        <figcaption class="label">Fig. 1 · Requests out, webhooks back</figcaption>
+      </figure>
+    </div>
+
+    <section class="case-section reveal" aria-labelledby="a-problem">
+      <div class="wrap grid">
+        <h2 id="a-problem" class="label section-label">A / Problem</h2>
+        <div class="section-body">
+          <p>Afriex moves money across borders through partner payment companies. Each partner has its own API, its own status codes and its own idea of what a webhook looks like. The user just wants to know if their money arrived.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="a-constraints">
+      <div class="wrap grid">
+        <h2 id="a-constraints" class="label section-label">B / Constraints</h2>
+        <div class="section-body">
+          <ul class="list">
+            <li>A wrong status costs real money.</li>
+            <li>Partners retry webhooks, go down, and change things with little warning.</li>
+            <li>Business customers shouldn't see a partner's raw error message.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section inverted reveal" aria-labelledby="a-design">
+      <div class="wrap grid">
+        <h2 id="a-design" class="label section-label">C / Design</h2>
+        <div class="section-body">
+          <p>I put each partner behind its own client with the same shape. The rest of the app asks "what's the status of this transfer?" and doesn't care who answers.</p>
+          <p>Webhooks all come in through one path: check the signature, translate the partner's status into ours, then update the transaction. If one fails, we can replay it. A webhook that arrives twice only counts once.</p>
+          <p>Deposits where the account name doesn't match the sender go to manual review instead of straight through. Partner errors map onto a short list of our own codes, so customers get something they can act on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="a-broke">
+      <div class="wrap grid">
+        <h2 id="a-broke" class="label section-label">D / When it broke</h2>
+        <div class="section-body">
+          <p>In 2025 one partner's webhook signatures stopped validating. I switched that endpoint off in production rather than accept events we couldn't verify.</p>
+          <p>We were checking the signature against the parsed request body, but the partner signed the raw bytes. I added middleware to keep the raw body, fixed the check, and wrote tests for missing signature fields before switching it back on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="a-tradeoffs">
+      <div class="wrap grid">
+        <h2 id="a-tradeoffs" class="label section-label">E / Trade-offs</h2>
+        <div class="section-body">
+          <p>A client per partner is more code than one generic one. When a partner changes something, though, the fix stays in one place.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="a-outcome">
+      <div class="wrap grid">
+        <h2 id="a-outcome" class="label section-label">F / Outcome</h2>
+        <div class="section-body">
+          <p>Adding a partner means writing one adapter, not touching the core flow.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pager" aria-label="Case studies">
+    <div class="wrap">
+      <a class="label link" href="cairn.html">← Cairn</a>
+      <a class="label link" href="thriftit.html">ThriftIt →</a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

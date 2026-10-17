@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cairn · Mercy Robert</title>
+  <meta name="description" content="Cairn: study streaks that only count once you've proved the work. Spring Boot, retrieval-augmented generation, AWS.">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="label brand" href="../">Mercy Robert</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a class="label link" href="../#systems">All systems</a></li>
+          <li><button class="theme-toggle" type="button">Dark</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="label">01 / Systems / Cairn</p>
+        <h1 class="display">Cairn</h1>
+        <p class="hero-line">Study streaks that only count once you've proved the work.</p>
+        <dl class="case-meta">
+          <div><dt class="label">Role</dt><dd>Sole developer, final year project</dd></div>
+          <div><dt class="label">Stack</dt><dd>Java 21, Spring Boot, React</dd></div>
+          <div><dt class="label">Cloud</dt><dd>AWS</dd></div>
+          <div><dt class="label">Status</dt><dd>In progress, to Dec 2026</dd></div>
+        </dl>
+      </header>
+
+      <figure class="figure">
+        <div class="figure-frame">
+          <svg class="dia draw" viewBox="0 0 760 428" role="img" aria-labelledby="cairn-fig-title">
+            <title id="cairn-fig-title">Cairn on AWS: the learner's browser loads the React client from CloudFront and calls a Spring Boot API. The API stores uploads in S3 and runs a RAG pipeline that reads chunks from RDS Postgres with pgvector and generates questions with a large language model.</title>
+            <defs><marker id="cairn-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrow-head" d="M0 0L10 5L0 10z"/></marker></defs>
+            <rect class="zone" x="160" y="56" width="592" height="356"/>
+            <text x="172" y="74" class="t-muted">AWS</text>
+
+            <path class="line" d="M128 196H152V112H174" marker-end="url(#cairn-arrow)"/>
+            <path class="line" d="M128 212H152V296H174" marker-end="url(#cairn-arrow)"/>
+            <path class="line" d="M336 296H382" marker-end="url(#cairn-arrow)"/>
+            <path class="line" d="M256 268V168H382" marker-end="url(#cairn-arrow)"/>
+            <path class="line" d="M554 286H572V224H590" marker-end="url(#cairn-arrow)"/>
+            <path class="line" d="M554 306H572V368H590" marker-end="url(#cairn-arrow)"/>
+
+            <rect class="box" x="16" y="176" width="112" height="56"/>
+            <text x="72" y="200" text-anchor="middle">LEARNER</text>
+            <text x="72" y="216" text-anchor="middle" class="t-muted">phone or laptop</text>
+
+            <rect class="box" x="176" y="84" width="160" height="56"/>
+            <text x="256" y="108" text-anchor="middle">CLOUDFRONT + S3</text>
+            <text x="256" y="124" text-anchor="middle" class="t-muted">React client</text>
+
+            <rect class="box" x="176" y="268" width="160" height="56"/>
+            <text x="256" y="292" text-anchor="middle">SPRING BOOT API</text>
+            <text x="256" y="308" text-anchor="middle" class="t-muted">Docker container</text>
+
+            <rect class="box" x="384" y="140" width="170" height="56"/>
+            <text x="469" y="164" text-anchor="middle">S3</text>
+            <text x="469" y="180" text-anchor="middle" class="t-muted">study material</text>
+
+            <rect class="box-accent" x="384" y="268" width="170" height="56"/>
+            <text x="469" y="292" text-anchor="middle">RAG PIPELINE</text>
+            <text x="469" y="308" text-anchor="middle" class="t-muted">grounded questions</text>
+
+            <rect class="box" x="592" y="196" width="152" height="56"/>
+            <text x="668" y="220" text-anchor="middle">LLM</text>
+            <text x="668" y="236" text-anchor="middle" class="t-muted">provider to be decided</text>
+
+            <rect class="box" x="592" y="340" width="152" height="56"/>
+            <text x="668" y="364" text-anchor="middle">RDS POSTGRES</text>
+            <text x="668" y="380" text-anchor="middle" class="t-muted">pgvector</text>
+          </svg>
+        </div>
+        <figcaption class="label">Fig. 1 · Planned architecture on AWS</figcaption>
+      </figure>
+    </div>
+
+    <section class="case-section reveal" aria-labelledby="c-problem">
+      <div class="wrap grid">
+        <h2 id="c-problem" class="label section-label">A / Problem</h2>
+        <div class="section-body">
+          <p>I was studying for AWS Solutions Architect Associate on my own when a friend at college and I started quizzing each other. That short exchange showed me what I actually knew.</p>
+          <p>We looked for a tool to keep it going and couldn't find one. Accountability apps only record that you said you studied, and the days you didn't are the ones that matter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="c-constraints">
+      <div class="wrap grid">
+        <h2 id="c-constraints" class="label section-label">B / Constraints</h2>
+        <div class="section-body">
+          <ul class="list">
+            <li>A check has to prove you studied your material, not that you can guess.</li>
+            <li>It can't be a daily quiz, or nobody will use it.</li>
+            <li>It has to run on a student budget.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section inverted reveal" aria-labelledby="c-design">
+      <div class="wrap grid">
+        <h2 id="c-design" class="label section-label">C / Design</h2>
+        <div class="section-body">
+          <p>Each study day you log starts as pending. On random days, Cairn gives you a short spot-check built from the material you attached to that milestone. Pass it and every pending day turns verified. Fail it and the streak freezes until you pass a retake. You never know which day will be checked.</p>
+          <p>The questions come from a retrieval-augmented generation pipeline. Study material is split into chunks, embedded and stored in PostgreSQL with pgvector. A large language model writes questions from the retrieved chunks only, and each question has to cite the chunk that answers it. A validation pass drops anything unsupported, ambiguous or duplicated.</p>
+          <p>On AWS, the React client is served from S3 and CloudFront, the Spring Boot API runs in Docker, the database is RDS for PostgreSQL, and uploads go to S3. Model credentials stay out of the code: an IAM role if it's Bedrock, Secrets Manager if it's a direct API.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="c-tradeoffs">
+      <div class="wrap grid">
+        <h2 id="c-tradeoffs" class="label section-label">D / Trade-offs</h2>
+        <div class="section-body">
+          <p>A random check means some fake days slip through. The bet is that never knowing which day will be checked does more than a quiz every day would.</p>
+          <p>I haven't picked the model provider yet. Bedrock would keep everything inside AWS behind an IAM role, but my student AWS account doesn't include it. I'll decide when I start building.</p>
+          <p>Keeping vectors in Postgres instead of a separate vector store means one database to run and nothing to keep in sync.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section reveal" aria-labelledby="c-outcome">
+      <div class="wrap grid">
+        <h2 id="c-outcome" class="label section-label">E / Outcome</h2>
+        <div class="section-body">
+          <p>Before building, I ran a feasibility spike on 50 generated questions. Grounding the questions in source material raised the share that tested the actual material from about half to 90% or more.</p>
+          <p>The full build runs through December 2026.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pager" aria-label="Case studies">
+    <div class="wrap">
+      <a class="label link" href="thriftit.html">← ThriftIt</a>
+      <a class="label link" href="afriex.html">Afriex →</a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
